@@ -24,6 +24,27 @@ pipeline {
     }
 
     stages {
+        stage("Preparation"){
+            agent{
+                node{
+                    label "linux && java11"
+                }
+            }
+
+            stages{
+                stage("Prepare java"){
+                    steps{
+                        echo "Prepare java"
+                    }
+                }
+                stage("Prepare maven"){
+                    steps{
+                        echo "Prepare maven"
+                    }
+                }
+            }
+        }
+
         stage("Parameter"){
             agent{
                 node{
