@@ -7,6 +7,11 @@ pipeline {
     stages {
         stage("Build") {
             steps {
+                script{
+                    for(int i = 0; i < 10; i++){
+                        echo("Script ${i}")
+                    }
+                }
                 echo("Hello Build")
                 sh("chmod +x mvnw")
                 sh("./mvnw clean compile test-compile")
