@@ -120,7 +120,7 @@ pipeline {
                 echo("Author: ${AUTHOR}")
                 echo("Email: ${EMAIL}")
                 echo("App User: ${APP_USR}")
-                sh('echo "App Password: $APP_PSW" > "rahasia.txt"')
+                sh('echo "App Password: $APP_PSW" > "rahasia.txt"') 
                 echo("Start job: ${env.JOB_NAME}")
                 echo("Start build: ${env.BUILD_NUMBER}")
                 echo("Branch Name: ${env.BRANCH_NAME}")
@@ -197,7 +197,13 @@ pipeline {
                 }
             }
             steps {
-                echo "Release it"
+                withCredentials([usernamePassword(
+                    credentialsId: "gani_rahasia",
+                    usernameVariable: "USER",
+                    passwordVariable: "PASSWORD"
+                )]){
+                    sh('echo "Release it with -u $USER -p $PASSWORD" > "release.txt"') 
+                }
             }
         }
     }
