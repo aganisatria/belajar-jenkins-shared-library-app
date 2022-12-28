@@ -11,4 +11,18 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo 'I will always love you'
+        }
+        success {
+            echo 'I will always success'
+        }
+        failure {
+            echo 'I will always failure'
+        }
+        cleanup {
+            echo 'I will always cleanup'
+        }
+    }
 }
