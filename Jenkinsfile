@@ -8,17 +8,24 @@ pipeline {
         stage("Build") {
             steps {
                 echo("Hello Build")
+                sleep(10)
+                echo("Hello Build2")
+
             }
         }
         stage("Test") {
             steps {
                 echo("Hello Test")
-                sh("error")
+                sleep(10)
+                echo("Hello Test2")
             }
         }
         stage("Deploy") {
             steps {
                 echo("Hello Deploy")
+                sleep(10)
+                echo("Hello Deploy2")
+
             }
         }
     }
