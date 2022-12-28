@@ -100,15 +100,21 @@ pipeline {
             }
         }
         stage("Deploy") {
+            input {
+                message "Can we Deploy?"
+                ok "Yes, of course."
+                submitter "gani, aganisatria"
+                parameters {
+                    choice(name: 'TARGET_ENV', choices: ['DEV', 'QA', 'PROD'], description: "We will deploy to?")
+                }
+            }
             agent {
                 node {
                     label "linux && java11"
                 }
             }
             steps {
-                echo("Hello Deploy")
-                sleep(10)
-                echo("Hello Deploy2")
+                echo("Deploy to ${TARGET_ENV}")
 
             }
         }
