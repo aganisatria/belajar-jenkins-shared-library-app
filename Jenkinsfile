@@ -8,6 +8,7 @@ pipeline {
         stage("Build") {
             steps {
                 echo("Hello Build")
+                sh("chmod +x mvnw")
                 sh("./mvnw clean compile test-compile")
                 echo("Finish Build")
 
