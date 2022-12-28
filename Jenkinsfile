@@ -21,7 +21,7 @@ pipeline {
                 echo("Author: ${AUTHOR}")
                 echo("Email: ${EMAIL}")
                 echo("App User: ${APP_USR}")
-                echo('App Password: $APP_PSW')
+                sh('echo "App Password: $APP_PSW" > "rahasia.txt"')
                 echo("Start job: ${env.JOB_NAME}")
                 echo("Start build: ${env.BUILD_NUMBER}")
                 echo("Branch Name: ${env.BRANCH_NAME}")
