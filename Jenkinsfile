@@ -25,7 +25,9 @@ pipeline {
 
     stages {
         stage("OS Setup"){
+            matrix{
 
+            }
         }
 
         stage("Preparation"){
