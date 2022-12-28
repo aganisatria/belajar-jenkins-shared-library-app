@@ -6,9 +6,9 @@ pipeline {
         EMAIL = "Aganisatria1@gmail.com"
     }
 
-    triggers {
-        cron("*/5 * * * *")
-    }
+    // triggers {
+    //     cron("*/5 * * * *")
+    // }
 
     parameters {
         string(name: "NAME", defaultValue: "Guest", description: "What is your name?")
@@ -25,21 +25,28 @@ pipeline {
 
     stages {
         stage("Preparation"){
-            agent{
-                node{
-                    label "linux && java11"
-                }
-            }
-
-            stages{
+            failFast true
+            parallel {
                 stage("Prepare java"){
+                    agent{
+                        node{
+                            label "linux && java11"
+                        }
+                    }
                     steps{
                         echo "Prepare java"
+                        sleep(5)
                     }
                 }
                 stage("Prepare maven"){
+                    agent{
+                        node{
+                            label "linux && java11"
+                        }
+                    }
                     steps{
                         echo "Prepare maven"
+                        sleep(5)
                     }
                 }
             }
