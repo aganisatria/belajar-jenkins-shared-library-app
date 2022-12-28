@@ -1,5 +1,11 @@
 pipeline {
     agent none
+
+    environmet {
+        AUTHOR = "Agani Satria"
+        EMAIL = "Aganisatria1@gmail.com"
+    }
+
     stages {
         stage("Prepare") {
             agent {
@@ -8,6 +14,8 @@ pipeline {
                 }
             }
             steps {
+                echo("Author: ${AUTHOR}")
+                echo("Email: ${EMAIL}")
                 echo("Start job: ${env.JOB_NAME}")
                 echo("Start build: ${env.BUILD_NUMBER}")
                 echo("Branch Name: ${env.BRANCH_NAME}")
