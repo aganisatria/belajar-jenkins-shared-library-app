@@ -8,16 +8,16 @@ pipeline {
         stage("Build") {
             steps {
                 echo("Hello Build")
-                sleep(10)
-                echo("Hello Build2")
+                sh("./mvnw clean compile test-compile")
+                echo("Finish Build")
 
             }
         }
         stage("Test") {
             steps {
                 echo("Hello Test")
-                sleep(10)
-                echo("Hello Test2")
+                sh("./mvnw test")
+                echo("Finish Test")
             }
         }
         stage("Deploy") {
