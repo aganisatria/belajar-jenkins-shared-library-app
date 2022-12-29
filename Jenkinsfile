@@ -1,4 +1,4 @@
-@Library("belajar-jenkins-shared-library@master") _
+@Library("belajar-jenkins-shared-library") _
 
 import aganisatria.jenkins.Output;
 
