@@ -2,4 +2,6 @@
 
 // import aganisatria.jenkins.Output;
 
-mavenPipeline()
+pznPipeline([
+    type: "maven"
+])
