@@ -1,4 +1,4 @@
-@Library("belajar-jenkins-shared-library") _
+@Library("belajar-jenkins-shared-library@master") _
 
 import aganisatria.jenkins.Output;
 
@@ -8,7 +8,8 @@ pipeline{
         stage("Hello Groovy"){
             steps{
                 script{
-                    Output.hello("Groovy")
+                    def coba = new Output()
+                    coba.hello("Groovy")
                 }
             }
         }
