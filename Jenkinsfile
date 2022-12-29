@@ -1,5 +1,7 @@
 @Library("belajar-jenkins-shared-library@master") _
 
+import aganisatria.jenkins.Output
+
 pipeline{
     agent any
     stages{
